@@ -21,7 +21,7 @@ public class Frame extends JFrame{
             }
     }
 
-    public static synchronized  Frame getInstance(){
+    public static synchronized Frame getInstance(){
         if (instance == null){
             instance = new Frame();
         }
