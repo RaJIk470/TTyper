@@ -9,8 +9,8 @@ public class WordsGenerator{
     static {
         try {
             instance = new WordsGenerator();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
+
         }
     }
 
@@ -39,11 +39,11 @@ public class WordsGenerator{
 
         mixedWords = Arrays.asList(text.toString().split("\n"));
         for (String word : mixedWords) {
-           if (word.length() >= easyLowerBorder || word.length() <= easyHigherBorder)
+           if (word.length() >= easyLowerBorder && word.length() <= easyHigherBorder)
                easyWords.add(word);
-           if (word.length() >= mediumLowerBorder || word.length() <= mediumHigherBorder)
+           if (word.length() >= mediumLowerBorder && word.length() <= mediumHigherBorder)
                mediumWords.add(word);
-           if (word.length() >= hardLowerBorder || word.length() <= hardHigherBorder)
+           if (word.length() >= hardLowerBorder && word.length() <= hardHigherBorder)
                hardWords.add(word);
         }
     }
