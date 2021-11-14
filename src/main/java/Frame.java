@@ -19,6 +19,10 @@ public class Frame extends JFrame{
                 layoutPanels[i][j].setBackground(new Color(44, 44, 44));
                 this.add(layoutPanels[i][j]);
             }
+        layoutPanels[0][0].add(WordsLabel.getInstance());
+        WordsLabel.getInstance().updateText("TTyper project");
+
+
     }
 
     public static synchronized Frame getInstance(){
