@@ -1,8 +1,7 @@
-import javax.swing.*;
 import java.awt.*;
 
 public class ScreenHandler {
-    private static ScreenHandler instance;
+    private static ScreenHandler instance = new ScreenHandler();
     Dimension screenSize;
 
     int screenWidth;
@@ -40,9 +39,6 @@ public class ScreenHandler {
     }
 
     public static synchronized ScreenHandler getInstance(){
-        if (instance == null){
-            instance = new ScreenHandler();
-        }
         return instance;
     }
 }

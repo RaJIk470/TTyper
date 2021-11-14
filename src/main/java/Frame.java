@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame{
-    private static Frame instance;
+    private static Frame instance = new Frame();
     int layoutSizeX = 1;
     int layoutSizeY = 1;
 
@@ -22,9 +22,6 @@ public class Frame extends JFrame{
     }
 
     public static synchronized Frame getInstance(){
-        if (instance == null){
-            instance = new Frame();
-        }
         return instance;
     }
 }
