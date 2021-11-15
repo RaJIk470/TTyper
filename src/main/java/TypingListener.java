@@ -9,6 +9,8 @@ public class TypingListener extends KeyAdapter{
     private String typedText;
     private int rightSymbolsCounter;
 
+    private boolean isTyping = false;
+
     TypingListener(){
         reset();
     }
@@ -26,6 +28,10 @@ public class TypingListener extends KeyAdapter{
             Frame.getInstance().resetWords();
         }
         else if (e.getKeyCode() >= 31 && e.getKeyChar() <= 122){ //if key char is a symbol
+            if (!isTyping){
+                isTyping = true;
+                AppTimer.getInstance().start();
+            }
             if (typedText.length() < WordsHandler.getInstance().getWordsLength()) {
                 typedText += e.getKeyChar();
                 SymbolMarker sm = checkSymbol(e.getKeyChar(),
@@ -63,6 +69,7 @@ public class TypingListener extends KeyAdapter{
     public void reset(){
         typedText = "";
         rightSymbolsCounter = 0;
+        isTyping = false;
     }
 
     public static TypingListener getInstance() {
