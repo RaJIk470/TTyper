@@ -24,11 +24,15 @@ public class Frame extends JFrame{
         layoutPanels[0][0].add(WordsLabel.getInstance());
         WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(40, DifficultyHandler.getCurrentDifficulty()));
         WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
-
-
     }
 
-    public static synchronized Frame getInstance(){
+    public void resetWords(){
+        WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(30, DifficultyHandler.getCurrentDifficulty()));
+        WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
+        TypingListener.getInstance().reset();
+    }
+
+    public static  Frame getInstance(){
         return instance;
     }
 }

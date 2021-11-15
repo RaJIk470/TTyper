@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 public class TypingListener extends KeyAdapter{
     private static TypingListener instance = new TypingListener();
     final int BACKSPACE = 8;
+    final int ENTER = 10;
 
     private String typedText;
     private int rightSymbolsCounter;
@@ -20,6 +21,9 @@ public class TypingListener extends KeyAdapter{
             typedText = typedText.substring(0, typedText.length() - 1);
 
             WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
+        }
+        else if (e.getKeyCode() == ENTER){
+            Frame.getInstance().resetWords();
         }
         else if (e.getKeyCode() >= 31 && e.getKeyChar() <= 122){ //if key char is a symbol
             if (typedText.length() < WordsHandler.getInstance().getWordsLength()) {

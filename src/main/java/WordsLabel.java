@@ -12,7 +12,9 @@ public class WordsLabel extends JLabel{
         this.setText(text);
     }
 
+
     public static WordsLabel getInstance() {
         return instance;
     }
+
 }
