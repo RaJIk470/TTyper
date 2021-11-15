@@ -19,6 +19,8 @@ public class Frame extends JFrame{
                 layoutPanels[i][j].setBackground(new Color(44, 44, 44));
                 this.add(layoutPanels[i][j]);
             }
+
+        this.addKeyListener(TypingListener.getInstance());
         layoutPanels[0][0].add(WordsLabel.getInstance());
         WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(40, DifficultyHandler.getCurrentDifficulty()));
         WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());

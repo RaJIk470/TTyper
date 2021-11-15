@@ -42,6 +42,10 @@ public class WordsHandler {
         return currentWords;
     }
 
+    public int getWordsLength(){
+        return currentWords.length();
+    }
+
     private void generateWordsMask(int size){
         wordsMask = new ArrayList<>();
         for(int i = 0; i < size; i++)

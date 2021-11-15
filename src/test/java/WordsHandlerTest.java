@@ -15,4 +15,10 @@ public class WordsHandlerTest {
         WordsHandler.getInstance().setCurrentWords(Collections.singletonList(String.join(" ", "Hello World")));
         Assert.assertEquals("Hello World", WordsHandler.getInstance().getCurrentWords());
     }
+
+    @Test
+    public void isLengthCorrect(){
+        WordsHandler.getInstance().setCurrentWords(Collections.singletonList(String.join(" ", "Hello World")));
+        Assert.assertEquals(11, WordsHandler.getInstance().getWordsLength());
+    }
 }
