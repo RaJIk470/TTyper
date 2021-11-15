@@ -12,6 +12,7 @@ public class Frame extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(layoutSizeY, layoutSizeX));
         this.setSize(ScreenHandler.getInstance().getScaledScreenWidth(), ScreenHandler.getInstance().getScaledScreenHeight());
+        this.setJMenuBar(Menu.getInstance().menuBar);
 
         for (int i = 0; i < layoutSizeY; i++)
             for (int j = 0; j < layoutSizeX; j++) {
