@@ -47,6 +47,7 @@ public class Frame extends JFrame{
         WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(wordsCount, DifficultyHandler.getCurrentDifficulty()));
         WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
         TypingListener.getInstance().reset();
+        AppTimer.getInstance().reset();
     }
 
     public static  Frame getInstance(){

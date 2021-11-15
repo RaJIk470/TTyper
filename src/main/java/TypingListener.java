@@ -36,6 +36,13 @@ public class TypingListener extends KeyAdapter{
                 WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
             }
         }
+        if (typedText.length() == WordsHandler.getInstance().getWordsLength()){
+            AppTimer.getInstance().stop();
+            double spm = rightSymbolsCounter * (60 / AppTimer.getInstance().currentTime);
+            ResultFrame.getInstance().setSpm(spm);
+            ResultFrame.getInstance().showFrame();
+            Frame.getInstance().resetWords();
+        }
     }
 
     public SymbolMarker checkSymbol(char a, char b){
