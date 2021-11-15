@@ -8,7 +8,9 @@ public class SettingsFrame extends JFrame {
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setSize(ScreenHandler.getInstance().getScaledScreenWidth(), ScreenHandler.getInstance().getScaledScreenHeight());
         this.setLayout(new GridLayout(5,1));
+
         this.add(DifficultyPanel.getInstance());
+        this.add(WordsCountPanel.getInstance());
 
     }
 

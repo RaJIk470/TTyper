@@ -28,7 +28,23 @@ public class Frame extends JFrame{
     }
 
     public void resetWords(){
-        WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(30, DifficultyHandler.getCurrentDifficulty()));
+        int wordsCount;
+        switch (WordsCountHandler.getCurrentWordsCount()){
+            case ThirtyWords:
+                wordsCount = 30;
+                break;
+            case FortyFiveWords:
+                wordsCount = 45;
+                break;
+            case SixtyWords:
+                wordsCount = 60;
+                break;
+            default:
+                wordsCount = 15;
+                break;
+        }
+
+        WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(wordsCount, DifficultyHandler.getCurrentDifficulty()));
         WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
         TypingListener.getInstance().reset();
     }

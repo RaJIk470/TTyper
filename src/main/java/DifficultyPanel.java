@@ -7,8 +7,8 @@ public class DifficultyPanel extends JPanel implements ActionListener {
     private static DifficultyPanel instance = new DifficultyPanel();
     DifficultyPanel(){
         JRadioButton easyButton = new JRadioButton("Easy");
-        easyButton.setSelected(true);
         JRadioButton mediumButton = new JRadioButton("Medium");
+        mediumButton.setSelected(true);
         JRadioButton hardButton = new JRadioButton("Hard");
         JRadioButton mixedButton = new JRadioButton("Mixed");
 
