@@ -34,19 +34,19 @@ public class DifficultyPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand() == "Easy") {
-            DifficultyHandler.setCurrentDifficulty(Difficulty.Easy); ;
+        if (e.getActionCommand().equals("Easy")) {
+            DifficultyHandler.setCurrentDifficulty(Difficulty.Easy);
             Frame.getInstance().resetWords();
         }
-        if (e.getActionCommand() == "Medium") {
+        if (e.getActionCommand().equals("Medium")) {
             DifficultyHandler.setCurrentDifficulty(Difficulty.Medium);
             Frame.getInstance().resetWords();
         }
-        if (e.getActionCommand() == "Hard") {
+        if (e.getActionCommand().equals("Hard")) {
             DifficultyHandler.setCurrentDifficulty(Difficulty.Hard);
             Frame.getInstance().resetWords();
         }
-        if (e.getActionCommand() == "Mixed") {
+        if (e.getActionCommand().equals("Mixed")) {
             DifficultyHandler.setCurrentDifficulty(Difficulty.Mixed);
             Frame.getInstance().resetWords();
         }
