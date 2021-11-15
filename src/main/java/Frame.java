@@ -20,7 +20,8 @@ public class Frame extends JFrame{
                 this.add(layoutPanels[i][j]);
             }
         layoutPanels[0][0].add(WordsLabel.getInstance());
-        WordsLabel.getInstance().updateText("TTyper project");
+        WordsHandler.getInstance().setCurrentWords(WordsGenerator.getInstance().generateRandomWords(40, DifficultyHandler.getCurrentDifficulty()));
+        WordsLabel.getInstance().updateText(WordsHandler.getInstance().formatWords());
 
 
     }
