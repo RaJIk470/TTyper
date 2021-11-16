@@ -58,7 +58,4 @@ public class WordsCountPanel extends JPanel implements ActionListener {
         return instance;
     }
 
-
-
-
 }

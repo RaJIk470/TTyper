@@ -23,6 +23,10 @@ public class ResultFrame extends JFrame{
        spmLabel.setText(Double.toString(spm));
     }
 
+    public double getSpm(){
+        return Double.valueOf(spmLabel.getText());
+    }
+
     public static ResultFrame getInstance(){
         return instance;
     }
