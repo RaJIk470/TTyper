@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 import java.security.SecureRandom;
+import java.util.List;
 
 public class WordsGenerator{
 
@@ -9,8 +10,8 @@ public class WordsGenerator{
     static {
         try {
             instance = new WordsGenerator();
-        } catch (Exception ignored) {
-
+        } catch (Exception e) {
+            //empty
         }
     }
 

@@ -11,6 +11,7 @@ public class SettingsFrame extends JFrame {
 
         this.add(DifficultyPanel.getInstance());
         this.add(WordsCountPanel.getInstance());
+        this.add(WordsOptionsPanel.getInstance());
 
     }
 

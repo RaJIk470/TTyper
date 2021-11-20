@@ -1,3 +1,6 @@
+import org.apache.commons.lang3.StringUtils;
+
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -34,7 +37,26 @@ public class WordsHandler {
     }
 
     public void setCurrentWords(List<String> words){
-        currentWords = String.join(" ", words);
+        String correctSpecSymbols = "!@#$^&*(){}[]':;?/.|";
+        currentWords = "";
+        List<String> newWords = new ArrayList<>();
+        for(String word: words){
+            String modifiedWord = word;
+            SecureRandom random = new SecureRandom();
+            if (WordsOptionsHandler.getUpperSymbols())
+                modifiedWord = StringUtils.capitalize(modifiedWord);
+            if (WordsOptionsHandler.getDigits()){
+                modifiedWord = (char)(Math.abs(random.nextInt()) % 10 + 48) + modifiedWord;
+            }
+            if (WordsOptionsHandler.getSpecialSymbols()){
+                char specSym = correctSpecSymbols.charAt(Math.abs(random.nextInt()) % correctSpecSymbols.length());
+                modifiedWord = specSym + modifiedWord;
+            }
+            if (WordsOptionsHandler.getCommas())
+                modifiedWord = modifiedWord + ',';
+            newWords.add(modifiedWord);
+        }
+        currentWords = String.join(" ", newWords);
         generateWordsMask(currentWords.length());
     }
 
