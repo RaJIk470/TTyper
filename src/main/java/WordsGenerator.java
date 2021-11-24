@@ -1,4 +1,7 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.security.SecureRandom;
 import java.util.List;
@@ -28,6 +31,7 @@ public class WordsGenerator{
     final int hardHigherBorder = 15;
 
     WordsGenerator() throws Exception {
+
         StringBuilder text = new StringBuilder();
 
         try (FileInputStream wordsFile = new FileInputStream("./src/main/resources/words.txt")) {
