@@ -26,6 +26,11 @@ public class ResultFrame extends JFrame{
     JLabel rightSymbolsLabel;
 
     /**
+     * this label is responsible for storing information about user's accuracy
+     */
+    JLabel accuracyLabel;
+
+    /**
      * current symbols per minute (speed of a user)
      */
     double currentSpm;
@@ -33,18 +38,17 @@ public class ResultFrame extends JFrame{
     /**
      * size of the layout for result frame with coordinate X
      */
-    int layoutSizeX = 3;
+    int layoutSizeX = 2;
 
     /**
      * size of the layout for result frame  with coordinate Y
      */
-    int layoutSizeY = 3;
+    int layoutSizeY = 2;
 
     /**
      * panels for location result labels on it
      */
     JPanel[][] layoutPanels = new JPanel[layoutSizeY][layoutSizeX];
-
     /**
      * constructor of the class that defines result label, layout panels
      */
@@ -64,14 +68,17 @@ public class ResultFrame extends JFrame{
         spmLabel = new JLabel();
         wpmLabel = new JLabel();
         rightSymbolsLabel = new JLabel();
+        accuracyLabel = new JLabel();
 
         spmLabel.setFont(new Font("Serif", Font.BOLD, 20));
         wpmLabel.setFont(new Font("Serif", Font.BOLD, 20));
         rightSymbolsLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        accuracyLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
         layoutPanels[0][0].add(spmLabel);
         layoutPanels[1][0].add(wpmLabel);
         layoutPanels[0][1].add(rightSymbolsLabel);
+        layoutPanels[1][1].add(accuracyLabel);
 
     }
 
@@ -92,6 +99,13 @@ public class ResultFrame extends JFrame{
         wpmLabel.setText("Words per minute: " + String.format("%,.0f", currentSpm / 5));
         rightSymbolsLabel.setText("correct symbols/symbols: " + String.valueOf(TypingListener.getInstance().getRightSymbolsCounter()) +
                 " / " + String.valueOf(TypingListener.getInstance().getTypedText().length()));
+        double accuracy;
+        if (TypingListener.getInstance().getTypedText().length() == 0)
+            accuracy = 0;
+        else
+            accuracy = (double)(TypingListener.getInstance().getRightSymbolsCounter()) / (double)(TypingListener.getInstance().getTypedText().length()) * 100;
+        accuracyLabel.setText("Accuracy: " + String.format("%,.0f", accuracy) + "%");
+
     }
 
     /**
