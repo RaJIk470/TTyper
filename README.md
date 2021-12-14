@@ -1,2 +1,2 @@
 # TTyper
-FOSS keyboard trainer
+FOSS typing trainer
